@@ -56,7 +56,7 @@ def blogContentShow(blog_id):
 
 
 
-   return render_template('blogContent.html',blog=blog，check=len(blog.text)<400)
+   return render_template('blogContent.html',blog=blog,check=len(blog.text)<400)
 
 
 
