@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>MyHomePage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- add bootstrap css file -->
+
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg fixed-top" id='navBar'>
+    <a class="navbar-brand">Home</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse " id="navbarResponsive">
+        <ul class="navbar-nav mr-4">
+
+            <li class="nav-item">
+                <a class="nav-link" data-value="about" href="#">关于我</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " data-value="portfolio" href="#">照片</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " data-value="blog" href="#">博客</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " data-value="team" href="#">
+                    技能展示</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " data-value="contact" href="#">联系我</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- header -->
+<header class="header " id="header">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="description ">
+            <h1>
+                你好，欢迎来到我的个人主页
+                <p class="h1">
+                    我是一名大三学生。这是我的第一个个人主页！
+                    这里面有我的个人资料，生活照片以及个人博客！
+                    如果想和我交流，也可以在网站最后留下您的联系方式和内容！
+                </p>
+                <a class="btn btn-primary btn-lg" href="#" role="button" id="seemore">See More</a>
+            </h1>
+        </div>
+    </div>
+
+</header>
+
+
+<!-- about section -->
+<div class="about" id="about">
+    <div class="container">
+        <h1 class="text-center">关于我</h1>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/watermelon.png" class="img-fluid">
+                <span class="text-justify">一个在读学生</span>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 desc">
+
+                <h3>招德枫</h3>
+                <p>
+                    我是中国海洋大学的一名学生，专业是计算机科学与技术。
+                    平常喜欢游泳，看电影。
+                    这是我的第一个个人主页， 希望你们能喜欢！
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- portfolio -->
+<div class="portfolio" id="portfolio">
+    <h1 class="text-center">照片墙</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../static/images/photowall.png" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Posts section -->
+<div class="blog" id="blog">
+    <div class="container">
+        <h1 class="text-center">博客</h1>
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="../static/images/{{ blogs[0].type }}.png" class="img-fluid">
+                    </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title">{{ blogs[0].title }}</h4>
+                        <p class="card-text">
+                            {{ blogs[0].text | truncate(10) }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/blogContent/{{ blogs[0].id }}" class="card-link">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="../static/images/{{ blogs[1].type }}.png" class="img-fluid">
+                    </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title">{{ blogs[1].title }}</h4>
+                        <p class="card-text">
+                            {{ blogs[1].text | truncate(10) }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/blogContent/{{ blogs[1].id }}" class="card-link">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="../static/images/left_arr.png" class="img-fluid">
+                    </div>
+
+                    <div class="card-body">
+                        <p class="card-text text-info">
+                            点击下方链接
+                            查看更多精彩博客！
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href={{ url_for('blogAllDisplay') }} class="card-link">Go!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team section -->
+<div class="team" id="team">
+    <div class="container">
+        <h1 class="text-center">技能展示</h1>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 item">
+                <img src="../static/images/py.png" class="img-fluid" alt="team">
+                <div class="des">
+                    Python
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 item">
+                <img src="../static/images/c++.png" class="img-fluid" alt="team">
+                <div class="des">
+                    C++
+                </div>
+                <span class="text-muted"></span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 item">
+                <img src="../static/images/torch.png" class="img-fluid" alt="team">
+                <div class="des">
+                    PyTorch
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 item">
+                <img src="../static/images/Opencv.png" class="img-fluid" alt="team">
+                <div class="des">
+                    Opencv
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact form -->
+<div class="contact-form" id="contact">
+    <div class="container">
+        <form method="post">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <h1>Get in Touch</h1>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 right">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-lg" placeholder="名字" name="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control form-control-lg" placeholder="电子邮箱地址" name="mail">
+                    </div>
+                    <div class="form-group">
+				   	 <textarea class="form-control form-control-lg" name="content">
+
+				   	 </textarea>
+                    </div>
+                    <input type="submit" class="btn btn-secondary btn-block" value="Send" name="">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- add Javasscript file from js file -->
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src='../static/js/main.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
