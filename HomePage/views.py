@@ -53,7 +53,7 @@ def blogAllDisplay():
 @app.route('/blogContent/<int:blog_id>')
 def blogContentShow(blog_id):
    blog = Blog.query.get_or_404(blog_id)
-   blog.timestamp += datetime.timedelta(hours=8)
+
 
 
    return render_template('blogContent.html',blog=blog，check=len(blog.text)<400)
