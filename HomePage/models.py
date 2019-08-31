@@ -12,6 +12,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from HomePage import db
 
 
+time = datetime.datetime.utcnow()
+time = time + datetime.timedelta(hours=8)
+
 # Customized Post model admin
 class PostAdmin(ModelView):
     # override form type with CKEditorField
@@ -48,14 +51,14 @@ class Message(db.Model):
     name = db.Column(db.String(20))
     mail = db.Column(db.String(40))
     body = db.Column(db.Text)
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),index=True)
+    timestamp = db.Column(db.DateTime, default=time,index=True)
 
 class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120))
     text = db.Column(db.Text)
     type = db.Column(db.String(15))
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),index=True)
+    timestamp = db.Column(db.DateTime, default=time,index=True)
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
