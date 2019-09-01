@@ -52,11 +52,16 @@ def blogAllDisplay():
 
 @app.route('/blogContent/<int:blog_id>')
 def blogContentShow(blog_id):
-   blog = Blog.query.get_or_404(blog_id)
+    blog = Blog.query.get_or_404(blog_id)
+    mark = 0
+    for i in range(0, int(Blog.query.count() / 3) + 1):
+        pagination = Blog.query.order_by(Blog.timestamp.desc()).paginate(i, 3, error_out=False)
+        if blog in pagination.items:
+            mark = i
+            break
 
 
-
-   return render_template('blogContent.html',blog=blog,check=len(blog.text)<400)
+    return render_template('blogContent.html',blog=blog,check=len(blog.text)<400,prev_page=mark)
 
 
 
